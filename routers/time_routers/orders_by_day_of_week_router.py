@@ -1,0 +1,34 @@
+from fastapi import APIRouter, Request
+from api_logic.time_api.orders_by_day_of_week_api import get_orders_by_day_of_week, orders_by_day_of_week_chart
+from fastapi_cache.decorator import cache
+from charts.time_charts.orders_by_day_of_week_charts import plot_orders_by_day_of_week
+from analysis.time_analysis.orders_by_day_of_week_analysis import calculate_orders_by_day_of_week
+from utils.data import get_df
+from utils.reports import render_simple_report
+from utils.settings import settings
+
+router = APIRouter()
+
+@router.get("/orders_by_day_of_week")
+@cache(expire=settings.CASHE_EXPIRE)
+async def orders_by_day_of_week():
+    return get_orders_by_day_of_week()
+
+@router.get("/orders_by_day_of_week_chart")
+@cache(expire=settings.CASHE_EXPIRE)
+async def get_orders_by_day_of_week_chart():
+    result = orders_by_day_of_week_chart()
+    return result
+
+@router.get("/orders_by_day_of_week_report")
+async def rfm_report(request: Request):
+    return render_simple_report(
+        request=request,
+        title="Orders by Day of Week",
+        get_df=get_df,
+        compute=calculate_orders_by_day_of_week,
+        chart=plot_orders_by_day_of_week,
+        image_name="orders_by_day_of_week.png",
+        analysis_key="orders_by_day_of_week_analysis",
+        result_preview_rows=12
+    )
