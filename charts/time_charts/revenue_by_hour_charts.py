@@ -12,4 +12,3 @@ def plot_revenue_by_hour(df, save_path):
     plt.xticks(range(0, 24))
     plt.grid(True)
     save_plot(plt, save_path)
-    plt.close()

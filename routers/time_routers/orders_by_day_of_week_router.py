@@ -5,17 +5,17 @@ from charts.time_charts.orders_by_day_of_week_charts import plot_orders_by_day_o
 from analysis.time_analysis.orders_by_day_of_week_analysis import calculate_orders_by_day_of_week
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/orders_by_day_of_week")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def orders_by_day_of_week():
     return get_orders_by_day_of_week()
 
 @router.get("/orders_by_day_of_week_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_orders_by_day_of_week_chart():
     result = orders_by_day_of_week_chart()
     return result

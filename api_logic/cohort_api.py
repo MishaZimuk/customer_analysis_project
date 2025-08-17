@@ -1,7 +1,7 @@
 from utils.data import get_df
 from analysis.cohort_analysis import calculate_cohort
 from charts.cohort_charts import plot_cohort
-from utils.settings import settings
+from utils.settings import IMAGES_DIR
 import os
 
 df = get_df()
@@ -12,6 +12,6 @@ def get_cohort():
 
 def cohort_chart():
     matrix = calculate_cohort(df)
-    plot_path = os.path.join(settings.IMAGES_DIR, "cohort.png")
+    plot_path = os.path.join(IMAGES_DIR, "cohort.png")
     plot_cohort(matrix, plot_path)
-    return {"image_url":f"{plot_path}"}
+    return {"image_url":f"/images/cohort.png"}

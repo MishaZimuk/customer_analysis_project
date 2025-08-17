@@ -11,4 +11,3 @@ def plot_orders_by_month(data, save_path):
     plt.ylabel("Number of Orders")
     plt.xticks(rotation=45)
     save_plot(plt, save_path)
-    plt.close()

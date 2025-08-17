@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Data
+data/raw/
+data/processed/*.csv
+!data/processed/README.md
+
+# Outputs
+output/
+static/images/*.png
+
+# VS Code
+.vscode/

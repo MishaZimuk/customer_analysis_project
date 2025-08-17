@@ -10,4 +10,3 @@ def plot_retention(df, save_path):
     plt.ylabel("Cohort Month")
     plt.xlabel("Months Since First Purchase")
     save_plot(plt, save_path)
-    plt.close()

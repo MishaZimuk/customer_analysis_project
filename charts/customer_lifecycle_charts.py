@@ -11,4 +11,3 @@ def plot_customer_lifecycle(df_lifecycle, save_path):
     plt.ylabel('Number of Customers')
     plt.xticks(rotation=0)
     save_plot(plt, save_path)
-    plt.close()

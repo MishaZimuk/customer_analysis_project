@@ -5,17 +5,17 @@ from analysis.avg_days_between_orders_analysis import calculate_avg_days_between
 from charts.avg_days_between_orders_charts import plot_avg_days_between_orders
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/avg_days_between_orders")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def avg_days_between_orders():
     return get_avg_days_between_orders()
 
 @router.get("/avg_days_between_orders_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_avg_days_between_orders():
     result = avg_days_between_orders_chart()
     return result

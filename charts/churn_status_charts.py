@@ -9,4 +9,3 @@ def plot_churn_status(churn_df, save_path):
     plt.title('Customer Churn Status')
     plt.ylabel('')
     save_plot(plt, save_path)
-    plt.close()

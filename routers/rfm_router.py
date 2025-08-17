@@ -5,17 +5,17 @@ from analysis.rfm_analysis import calculate_rfm
 from charts.rfm_charts import plot_rfm
 from utils.reports import render_simple_report
 from utils.data import get_df
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/rfm")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def rfm():
     return get_rfm()
 
 @router.get("/rfm_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_rfm_chart():
     result = rfm_chart()
     return result

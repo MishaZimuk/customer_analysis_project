@@ -9,4 +9,3 @@ def plot_new_vs_returning(data, save_path):
     plt.xlabel('Order Month')
     plt.xticks(rotation=45)
     save_plot(plt, save_path)
-    plt.close()

@@ -10,4 +10,3 @@ def plot_cohort(retention, save_path):
     plt.ylabel('Cohort (First Order Month)')
     plt.xlabel('Months Since First Order')
     save_plot(plt, save_path)
-    plt.close()

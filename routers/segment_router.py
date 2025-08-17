@@ -5,17 +5,17 @@ from charts.segment_charts import plot_segment
 from analysis.segment_analysis import calculate_segment
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/segment")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def segment():
     return get_segment()
 
 @router.get("/segment_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_segment_chart():
     result = segment_chart()
     return result

@@ -9,4 +9,3 @@ def plot_rfm(df, save_path):
     plt.ylabel("Frequency")
     plt.grid(True)
     save_plot(plt, save_path)
-    plt.close()

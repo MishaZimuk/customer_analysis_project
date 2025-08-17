@@ -1,7 +1,7 @@
 from utils.data import get_df
 from analysis.rfm_analysis import calculate_rfm
 from charts.rfm_charts import plot_rfm
-from utils.settings import settings
+from utils.settings import IMAGES_DIR
 import os
 
 
@@ -13,6 +13,6 @@ def get_rfm():
 
 def rfm_chart():
     matrix = calculate_rfm(df)
-    plot_path = os.path.join(settings.IMAGES_DIR, "rfm.png")
+    plot_path = os.path.join(IMAGES_DIR, "rfm.png")
     plot_rfm(matrix, plot_path)
-    return {"image_url":f"{plot_path}"}
+    return {"image_url":f"/images/rfm.png"}

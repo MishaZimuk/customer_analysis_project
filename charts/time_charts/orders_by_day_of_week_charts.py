@@ -10,4 +10,4 @@ def plot_orders_by_day_of_week(df, save_path):
     plt.ylabel('Number of Orders')
     plt.grid(axis='y')
     save_plot(plt, save_path)
-    plt.close()
+    

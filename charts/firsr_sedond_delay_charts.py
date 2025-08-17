@@ -10,4 +10,3 @@ def plot_first_second_delay(merged, save_path):
     plt.ylabel('Number of Customers')
     plt.grid(True)
     save_plot(plt, save_path)
-    plt.close()

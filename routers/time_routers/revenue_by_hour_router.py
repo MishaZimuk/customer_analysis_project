@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from api_logic.time_api.revenue_by_hour_api import get_revenue_by_hour, revenue_by_hour_chart
 from fastapi_cache.decorator import cache
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 from charts.time_charts.revenue_by_hour_charts import plot_revenue_by_hour
 from analysis.time_analysis.revenue_by_hour_analysis import calculate_revenue_by_hour
 from utils.data import get_df
@@ -10,12 +10,12 @@ from utils.reports import render_simple_report
 router = APIRouter()
 
 @router.get("/revenue_by_hour")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 def revenue_by_hour():
     return get_revenue_by_hour()
 
 @router.get("/revenue_by_hour_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 def get_revenue_by_hour_chart():
     result = revenue_by_hour_chart()
     return result

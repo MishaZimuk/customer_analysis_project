@@ -1,8 +1,7 @@
-from pydantic import BaseSettings
+from pathlib import Path
 
-class Settings(BaseSettings):
-    CASHE_EXPIRE: int = 300
-    STATIC_DIR: str = 'static'
-    IMAGES_DIR: str = 'static/images'
 
-settings= Settings()
+CASHE_EXPIRE: int = 300
+BASE_DIR = Path(__file__).resolve().parents[1]
+STATIC_DIR: str = BASE_DIR/'static'
+IMAGES_DIR: str = STATIC_DIR/'images'

@@ -9,4 +9,3 @@ def plot_customer_lifetime(lifetime_df, save_path):
     plt.xlabel("Lifetime (days)")
     plt.ylabel("Number of Customers")
     save_plot(plt, save_path)
-    plt.close()

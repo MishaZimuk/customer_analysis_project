@@ -1,7 +1,7 @@
 from utils.data import get_df
 from analysis.ltv_analysis import calculate_ltv
 from charts.ltv_charts import plot_ltv
-from utils.settings import settings
+from utils.settings import IMAGES_DIR
 import os
 
 df = get_df()
@@ -12,6 +12,6 @@ def get_ltv():
 
 def ltv_chart():
     matrix = calculate_ltv(df)
-    plot_path = os.path.join(settings.IMAGES_DIR, "ltv.png")
+    plot_path = os.path.join(IMAGES_DIR, "ltv.png")
     plot_ltv(matrix, plot_path)
-    return {"image_url":f"{plot_path}"}
+    return {"image_url":f"/images/ltv.png"}

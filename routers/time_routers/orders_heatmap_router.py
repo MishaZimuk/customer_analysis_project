@@ -5,17 +5,17 @@ from charts.time_charts.orders_heatmap_charts import plot_orders_heatmap
 from analysis.time_analysis.orders_heatmap_analysis import calculate_orders_heatmap
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/orders_heatmap")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 def orders_heatmap():
     return get_orders_heatmap()
 
 @router.get("/orders_heatmap_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 def get_orders_heatmap_chart():
     result = orders_heatmap_chart()
     return result

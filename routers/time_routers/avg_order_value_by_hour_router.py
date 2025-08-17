@@ -5,17 +5,17 @@ from charts.time_charts.avg_order_value_by_hour_charts import plot_avg_order_val
 from analysis.time_analysis.avg_order_value_by_hour_analysis import calculate_avg_order_value_by_hour
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/avg_order_value_by_hour")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def avg_order_value_by_hour():
     return get_avg_order_value_by_hour()
 
 @router.get("/avg_order_value_by_hour_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_avg_order_value_by_hour_chart():
     result = avg_order_value_by_hour_chart()
     return result

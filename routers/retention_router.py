@@ -5,17 +5,17 @@ from charts.retention_charts import plot_retention
 from analysis.retention_analysis import calculate_retention
 from utils.data import get_df
 from utils.reports import render_simple_report
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 
 router = APIRouter()
 
 @router.get("/retention")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def retention():
     return get_retention()
 
 @router.get("/retention_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_retention_charts():
     result = retention_chart()
     return result

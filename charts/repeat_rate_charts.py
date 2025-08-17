@@ -9,4 +9,3 @@ def plot_repeat_rate(repeat_rate,save_path):
     plt.title('Repeat Rate')
     plt.axis('equal')
     save_plot(plt, save_path)
-    plt.close()

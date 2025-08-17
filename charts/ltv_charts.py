@@ -11,4 +11,3 @@ def plot_ltv(df, save_path):
     plt.ylabel('Cumulative Revenue per Customer')
     plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
     save_plot(plt, save_path)
-    plt.close()

@@ -10,4 +10,3 @@ def plot_orders_by_hour(df, save_path):
     plt.ylabel('Number of Orders')
     plt.grid(axis='y')
     save_plot(plt, save_path)
-    plt.close()

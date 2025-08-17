@@ -11,4 +11,4 @@ def plot_orders_by_day_of_month(df, save_path):
     plt.ylabel("Number of Orders")
     plt.xticks(rotation=0)
     save_plot(plt, save_path)
-    plt.close()
+   

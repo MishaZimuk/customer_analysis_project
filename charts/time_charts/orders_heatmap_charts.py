@@ -15,4 +15,3 @@ def plot_orders_heatmap(data, save_path):
         rotation=0
     )
     save_plot(plt, save_path)
-    plt.close()

@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Request
 from api_logic.cohort_api import get_cohort, cohort_chart
 from fastapi_cache.decorator import cache
-from utils.settings import settings
+from utils.settings import CASHE_EXPIRE
 from charts.cohort_charts import plot_cohort
 from analysis.cohort_analysis import calculate_cohort
 from utils.data import get_df
@@ -10,12 +10,12 @@ from utils.reports import render_simple_report
 router = APIRouter()
 
 @router.get("/cohort")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def cohort():
     return get_cohort()
 
 @router.get("/cohort_chart")
-@cache(expire=settings.CASHE_EXPIRE)
+@cache(expire=CASHE_EXPIRE)
 async def get_cohort_chart():
     result = cohort_chart()
     return result

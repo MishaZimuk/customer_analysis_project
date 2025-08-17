@@ -9,4 +9,3 @@ def plot_avg_days_between_orders(df_avg_days, save_path):
     plt.xlabel('Average Days')
     plt.grid(axis='x')
     save_plot(plt, save_path)
-    plt.close()

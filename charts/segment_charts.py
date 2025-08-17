@@ -9,4 +9,3 @@ def plot_segment(summary_df, save_path):
     plt.xlabel("Segment")
     plt.xticks(rotation=45)
     save_plot(plt, save_path)
-    plt.close()
