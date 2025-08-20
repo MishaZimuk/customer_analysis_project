@@ -9,7 +9,7 @@ from utils.reports import render_simple_report
 
 router = APIRouter()
 
-@router.get("/firs_second_delay")
+@router.get("/first_second_delay")
 @cache(expire=CASHE_EXPIRE)
 async def first_second_delay():
     return get_first_second_delay()
